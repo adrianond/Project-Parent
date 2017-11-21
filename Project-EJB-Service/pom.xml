@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <!-- Parent -->
+  <parent>
+    <groupId>com.teste.maven.modules</groupId>
+    <artifactId>Project-Parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  
+  <!-- Module EJB -->
+  <artifactId>Project-EJB-Service</artifactId>
+  <packaging>ejb</packaging>
+  <description>Modulo Service</description>
+
+	<!-- Dependencias -->
+    <dependencies>
+       <!-- 
+       <dependency> 
+		  <groupId>javax</groupId> 
+		  <artifactId>javaee-api</artifactId> 
+		  <scope>provided</scope> 
+	   </dependency>
+	   -->
+	   <!-- sqlite -->
+	   <dependency>
+		  <groupId>org.xerial</groupId>
+		  <artifactId>sqlite-jdbc</artifactId>
+		  <scope>provided</scope>
+	   </dependency>
+       <!-- Faces -->
+	    
+	   <dependency>
+		  <groupId>org.glassfish</groupId>
+		  <artifactId>javax.faces</artifactId>
+		  <scope>provided</scope>
+	   </dependency> 
+	   
+	   <!-- EJB 3 -->
+	    
+	   <dependency>
+		  <groupId>javax.ejb</groupId>
+		  <artifactId>ejb-api</artifactId>
+		  <scope>provided</scope>
+	   </dependency>
+	   <dependency>
+		  <groupId>commons-io</groupId>
+		  <artifactId>commons-io</artifactId>
+	  </dependency>
+	   
+	   
+	   <!-- DOM -->
+	   <dependency>
+		  <groupId>dom4j</groupId>
+		  <artifactId>dom4j</artifactId>
+		  <scope>provided</scope>
+	   </dependency>
+	   <!-- Primefaces -->
+	   <dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-validator</artifactId>
+		  <scope>provided</scope>
+	   </dependency>
+	   <dependency>
+		  <groupId>org.hibernate.common</groupId>
+		  <artifactId>hibernate-commons-annotations</artifactId>
+		  <classifier>tests</classifier>
+		  <scope>provided</scope>
+	   </dependency>
+	   <dependency>
+		  <groupId>org.hibernate.javax.persistence</groupId>
+		  <artifactId>hibernate-jpa-2.0-api</artifactId>
+		  <scope>provided</scope>
+	   </dependency>
+	   <dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-entitymanager</artifactId>
+		  <scope>provided</scope>
+	   </dependency>
+    </dependencies>
+</project>

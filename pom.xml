@@ -1,0 +1,194 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent Declaration -->
+	<groupId>com.teste.maven.modules</groupId>
+	<artifactId>Project-Parent</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<description>Projeto Parent</description>
+
+	<!-- Propriedades -->
+	<properties>
+		<!-- <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
+	</properties>
+
+	<!-- Dependências utilizadas na Aplicação -->
+    <dependencyManagement>
+        <dependencies>
+	      <!-- Modulo EJB -->
+	      <dependency>
+		     <groupId>com.teste.maven.modules</groupId>
+		     <artifactId>Project-EJB-Service</artifactId>
+		     <type>ejb</type>
+		     <version>${parent.version}</version>
+	      </dependency>
+	      <!-- Modulo Web -->
+	      <dependency>
+		     <groupId>com.teste.maven.modules</groupId>
+		     <artifactId>Project-Client</artifactId>
+		     <type>war</type>
+		     <version>${parent.version}</version>
+	      </dependency>
+	      <!-- API Javaee 6 -->
+	      <!-- 
+	      <dependency>
+		     <groupId>javax</groupId>
+		     <artifactId>javaee-api</artifactId>
+		     <version>6.0</version>
+		     <scope>provided</scope>
+	      </dependency>
+	      -->
+	      <!-- CDI -->
+	       
+	      <dependency>
+		     <groupId>javax.enterprise</groupId>
+		     <artifactId>cdi-api</artifactId>
+		     <version>1.0-SP1</version>
+	      </dependency>
+	       
+	      <!-- Servlet -->
+	      <!-- 
+	      <dependency>
+		     <groupId>javax.servlet</groupId>
+		     <artifactId>javax.servlet-api</artifactId>
+		     <version>3.0.1</version>
+	      </dependency>
+	      -->
+	      <!-- ejb-api 3 -->
+	       
+	      <dependency>
+		     <groupId>javax.ejb</groupId>
+		     <artifactId>ejb-api</artifactId>
+		     <version>3.0-alpha-1</version>
+	      </dependency>
+	       
+	      <!-- Faces -->
+	       
+	      <dependency>
+		     <groupId>javax.faces</groupId>
+		     <artifactId>javax.faces-api</artifactId>
+		     <version>2.1</version>
+		     <scope>provided</scope>
+	      </dependency>
+	      
+          <!-- Faces -->
+	      
+	      <dependency> 
+	         <groupId>org.glassfish</groupId> 
+	         <artifactId>javax.faces</artifactId> 
+		     <version>2.1.13</version> 
+		     <scope>provided</scope> 
+		  </dependency> 
+		  
+	      <!-- Primefaces -->
+	      <dependency>
+	         <groupId>org.primefaces</groupId>
+	         <artifactId>primefaces</artifactId>
+	         <version>5.0</version>
+          </dependency>
+	      <!-- SqlLite -->
+	      <dependency>
+		     <groupId>org.xerial</groupId>
+		     <artifactId>sqlite-jdbc</artifactId>
+		     <version>3.15.0</version>
+		     <scope>provided</scope>
+	      </dependency>
+	      <!-- Commons -->
+	       
+	      <dependency>
+		     <groupId>commons-io</groupId>
+		     <artifactId>commons-io</artifactId>
+		     <version>2.4</version>
+	      </dependency>
+	      
+	      <!-- DOM -->
+	      <dependency>
+		     <groupId>dom4j</groupId>
+		     <artifactId>dom4j</artifactId>
+		     <version>1.6.1</version>
+		     <scope>provided</scope>
+	     </dependency>
+	     <!-- Hibernate Inicio -->
+	     <dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>4.2.0.Final</version>
+		    <scope>provided</scope>
+	     </dependency>
+	     <dependency>
+		    <groupId>org.hibernate.common</groupId>
+		    <artifactId>hibernate-commons-annotations</artifactId>
+		    <version>4.0.1.Final</version>
+		    <classifier>tests</classifier>
+		    <scope>provided</scope>
+	     </dependency>
+	     <dependency>
+		    <groupId>org.hibernate.javax.persistence</groupId>
+		    <artifactId>hibernate-jpa-2.0-api</artifactId>
+		    <version>1.0.1.Final</version>
+		    <scope>provided</scope>
+	     </dependency>
+	     <dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		    <version>4.0.1.Final</version>
+		    <scope>provided</scope>
+	     </dependency>
+	     <!-- Hibernate Fim -->
+       </dependencies>
+    </dependencyManagement>
+
+
+	<!-- Projects Modules Filhos -->
+	<modules>
+		<module>Project-EJB-Service</module>
+		<module>Project-Client</module>
+		<module>Project-EAR</module>
+	</modules>
+   
+    <!-- Build -->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- Plugin compiler para definicao da versao do java -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.6.0</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+				<!-- Plugin EJB para definicao da versao dos EJB -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-ejb-plugin</artifactId>
+					<version>2.3</version>
+					<configuration>
+						<ejbVersion>3.1</ejbVersion>
+						<!-- this is false by default -->
+						<generateClient>true</generateClient>
+					</configuration>
+				</plugin>
+				<!-- Plugin de empacotamento de modulo WAR -->
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.3</version>
+					<configuration>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
+				</plugin>
+				<!-- JBoss AS plugin to deploy the application -->
+				<plugin>
+					<groupId>org.jboss.as.plugins</groupId>
+					<artifactId>jboss-as-maven-plugin</artifactId>
+					<version>7.0.2.Final</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

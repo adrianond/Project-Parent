@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent -->
+	<parent>
+		<groupId>com.teste.maven.modules</groupId>
+		<artifactId>Project-Parent</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<!-- Client/WEB Module -->
+	<artifactId>Project-Client</artifactId>
+	<packaging>war</packaging>
+	<description>Client</description>
+
+	<!-- Dependências -->
+    <dependencies>
+	   <!-- Javaee 6 -->
+	   <!-- 
+	   <dependency> 
+	       <groupId>javax</groupId> 
+	       <artifactId>javaee-api</artifactId> 
+		   <scope>provided</scope> 
+	   </dependency>
+	   -->
+	   <!-- Dependencia Modulo EJB -->
+	   <dependency>
+		  <groupId>com.teste.maven.modules</groupId>
+		  <artifactId>Project-EJB-Service</artifactId>
+		  <version>1.0.0</version>
+	   </dependency>
+	   <!-- faces-api -->
+	   
+	   <dependency>
+		  <groupId>javax.faces</groupId>
+		  <artifactId>javax.faces-api</artifactId>
+	   </dependency>
+	     
+	   <!-- cdi-api -->
+	     
+	   <dependency>
+		  <groupId>javax.enterprise</groupId>
+		  <artifactId>cdi-api</artifactId>
+	   </dependency>
+	    
+	   <!-- 
+	   <dependency>
+		  <groupId>javax.ejb</groupId>
+		  <artifactId>ejb-api</artifactId>
+		 <scope>provided</scope>
+	   </dependency>
+	    -->
+	   <!-- primefaces -->
+	   <dependency>
+		  <groupId>org.primefaces</groupId>
+		  <artifactId>primefaces</artifactId>
+	   </dependency>
+    </dependencies>
+</project>
